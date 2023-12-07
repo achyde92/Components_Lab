@@ -1,14 +1,15 @@
-const MovieInfo = ({title, runningtime, genre}) => {
-    return ( <div>
-        <h4>{title}</h4>
+const MovieInfo = ({movieObj}) => {
+    return ( 
+    <div>
+        <h4>{movieObj.title}</h4>
         <div>
             <div>
                 <span>Running Time</span>
-                <span>{runningtime}</span>
+                <span>{movieObj.runningtime}</span>
             </div>
             <div>
-                <span>Genre</span>
-                <span>{genre}</span>
+                <span>Genre </span>
+                <span>{movieObj.genre}</span>
             </div>
         </div>
     </div> );
