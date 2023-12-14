@@ -24,11 +24,6 @@ function App() {
     fetchMovies();
   }, []);
 
-  const handleNewmovie = (newMovie) => {
-    const updatedMovie = [...movies, newMovie];
-    setmovies(updatedMovie);
-  };
-
   const selectedMovie = movies[activeIndex];
 
   return (
@@ -41,7 +36,7 @@ function App() {
           setActiveIndex={setActiveIndex}
         />
         <MovieInfo movieObj={selectedMovie} />
-        <NewMovieForm onNewMovie={handleNewmovie} />
+        <NewMovieForm onNewMovie={fetchMovies}/>
       </div>
     </div>
   );

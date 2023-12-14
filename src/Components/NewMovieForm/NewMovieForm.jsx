@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '../TextField/TextField';
+import axios from 'axios';
 
 
 const NewMovieForm = ({onNewMovie}) => {
@@ -7,15 +8,23 @@ const NewMovieForm = ({onNewMovie}) => {
     const [runningtime, setRunningTime] = useState("");
     const [genre, setGenre] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = {
             title,
             runningtime,
             genre
         };
-        onNewMovie(formData);
-    }
+        try{
+            const response = await axios.post("https://localhost:7276/api/movies", formData)
+            if (response.status === 201){
+                onNewMovie()
+            }
+        }
+        catch(error) {
+            console.warn("Error Submitting new movie form: ");
+        }
+    };
 
     return ( <form onSubmit={handleSubmit} className="flex item">
         <h4>Add Movie</h4>
