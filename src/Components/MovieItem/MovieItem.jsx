@@ -13,7 +13,7 @@ const MovieItem = ({title, activeInedex: activeIndex, setActiveIndex, index}) =>
         setActiveIndex(index)
     };
 
-    const btnClass = isFavorite ? "active-btn" : ""
+    const btnClass = isFavorite ? "btn btn-success" : "btn btn-secondary"
     const activeClass = index === activeIndex ? "active-movie" : ""
 
     return (
